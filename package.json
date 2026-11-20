@@ -1,0 +1,10 @@
+{
+  "name": "ai-agent-marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Agent Marketplace Demo",
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "dev": "node backend/src/server.js"
+  }
+}
