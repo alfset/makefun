@@ -1,0 +1,2 @@
+[lfs "customtransfer.lfs-standalone-file.path"]
+	access = ./adapter
