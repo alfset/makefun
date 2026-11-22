@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 3eff67198095bd5316ddb275f4af9fc93a96019b Victim <victim@localhost> 1795174722 +0700	commit (initial): initial structure
+3eff67198095bd5316ddb275f4af9fc93a96019b 3eff67198095bd5316ddb275f4af9fc93a96019b Victim <victim@localhost> 1795174722 +0700	checkout: moving from master to preview
+3eff67198095bd5316ddb275f4af9fc93a96019b 3eff67198095bd5316ddb275f4af9fc93a96019b Victim <victim@localhost> 1795174722 +0700	checkout: moving from preview to master
+3eff67198095bd5316ddb275f4af9fc93a96019b 3eff67198095bd5316ddb275f4af9fc93a96019b Victim <victim@localhost> 1795174941 +0700	checkout: moving from master to preview
+3eff67198095bd5316ddb275f4af9fc93a96019b 3eff67198095bd5316ddb275f4af9fc93a96019b Victim <victim@localhost> 1795175452 +0700	checkout: moving from preview to master

