@@ -1,2 +1,4 @@
+[lfs]
+	url = http://127.0.0.1:1/never
 [lfs "customtransfer.lfs-standalone-file.path"]
 	access = ./adapter
