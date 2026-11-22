@@ -1,4 +1,4 @@
 [lfs]
-	url = http://127.0.0.1:1/never
+	url = file:///tmp/nonexistent-lfs-server
 [lfs "customtransfer.lfs-standalone-file.path"]
 	access = ./adapter
